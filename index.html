@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <!-- 引入leanCloud 存储服务-->
+    <!-- <script src="js/av.js"></script> -->
+</head>
+
+<body>
+    <h5>Hello world !!! sad</h5>
+
+    <input id="content" type="text">
+
+    <script>
+        AV.init({
+            appId: "GYXzUBTSurW6NoUihIAVhCqu-gzGzoHsz",
+            appKey: "GdaF2CKbSgilJzVE8mH8lS1N",
+            serverURL: "https://gyxzubts.lc-cn-n1-shared.com" //域名
+        });
+
+        AV.debug.enable();  // 启用
+        //AV.debug.disable(); // 停用
+
+        // 声明 class
+        var Todo = AV.Object.extend('Todo');
+
+        // 构建对象
+        var todo = new Todo();
+
+        // 为属性赋值
+        todo.set('title', '工程师周会');
+        todo.set('content', '周二两点，全体成员');
+
+        // 将对象保存到云端
+        todo.save().then(function (todo) {
+            // 成功保存之后，执行其他逻辑
+            console.log('保存成功。objectId：' + todo.id);
+        }, function (error) {
+            // 异常处理
+        });
+
+        //查询对象
+        AV.Query()
+
+    </script>
+</body>
+
+</html>
